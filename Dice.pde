@@ -1,11 +1,12 @@
 void setup()
 {
 	size(600, 600);
-	noLoop();
+	//noLoop();
 }
 
 void draw()
 {
+	int sum = 0;
 	background(0);
 	for (int a = 0; a < 600; a = a + 100)
 	{
@@ -13,13 +14,19 @@ void draw()
 	{
 		Die bob = new Die(a, b);
 		bob.show();
+		sum = sum + bob.numDie;
 	}	
 	}
+		textAlign(CENTER);
+		textSize(200);
+		fill(0, 0, 0, 100);
+		text(sum, 300, 375);
 }
 
 void mousePressed()
 {
 	redraw();
+	noLoop();
 }
 
 class Die //models one single dice cube
@@ -31,6 +38,7 @@ class Die //models one single dice cube
 		myY = y;
 		numDie = (int)(Math.random()*6 + 1);
 	}
+
 	void show()
 	{
 		//fill((int)(Math.random()), (int)(Math.random()*256), (int)(Math.random()*256));
@@ -38,7 +46,7 @@ class Die //models one single dice cube
 		strokeWeight(3);
 		stroke(255);
 		rect(myX, myY, 100, 100, 15);
-
+		
 		if (numDie == 1)
 		{
 			fill(255);
