@@ -1,3 +1,4 @@
+int count = 0;
 void setup()
 {
 	size(600, 600);
@@ -10,23 +11,25 @@ void draw()
 	background(0);
 	for (int a = 0; a < 600; a = a + 100)
 	{
-	for (int b = 0; b < 600; b = b + 100)
+	for (int b = 0; b < 500; b = b + 100)
 	{
 		Die bob = new Die(a, b);
 		bob.show();
 		sum = sum + bob.numDie;
 	}	
 	}
-		textAlign(CENTER);
-		textSize(200);
-		fill(0, 0, 0, 100);
-		text(sum, 300, 375);
+		textSize(50);
+		fill(255);
+		text("total: " + sum, 25, 570);
+		text("# rolled: " + count, 300, 570);
+		//text("grand total: " + (count*sum), 100, 100);
 }
 
 void mousePressed()
 {
 	redraw();
 	noLoop();
+	count = count + 1;
 }
 
 class Die //models one single dice cube
@@ -41,8 +44,8 @@ class Die //models one single dice cube
 
 	void show()
 	{
-		//fill((int)(Math.random()), (int)(Math.random()*256), (int)(Math.random()*256));
-		fill(204, 204, 255);
+		fill((int)(Math.random()), (int)(Math.random()*256), (int)(Math.random()*256));
+		//fill(204, 204, 255);
 		strokeWeight(3);
 		stroke(255);
 		rect(myX, myY, 100, 100, 15);
