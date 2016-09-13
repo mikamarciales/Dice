@@ -18,10 +18,10 @@ void draw()
 		sum = sum + bob.numDie;
 	}	
 	}
-		textSize(50);
+		textSize(35);
 		fill(255);
-		text("total: " + sum, 25, 570);
-		text("# rolled: " + count, 300, 570);
+		text("total: " + sum, 50, 567);
+		text("# times rolled: " + count, 250, 567);
 		//text("grand total: " + (count*sum), 100, 100);
 }
 
